@@ -150,6 +150,26 @@ const app = createApp({
         });
       }, 2000);
     },
+    startListening() {
+      if ("webkitSpeechRecognition" in window) {
+        this.listening = true;
+        const recognition = new webkitSpeechRecognition();
+        // lingua di registrazione
+        recognition.lang = "it-IT";
+        recognition.continuous = false;
+        recognition.onresult = (event) => {
+          const transcript = event.results[0][0].transcript;
+          this.newMessage += transcript;
+        };
+        recognition.start();
+        setTimeout(() => {
+          this.listening = false;
+        }, 5000);
+      } else {
+        // se non disponibile
+        alert("Errore: riconoscimento vocale non disponibile");
+      }
+    },
   },
   created() {
     axios.get(url_api).then((res) => {
