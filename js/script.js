@@ -19,12 +19,19 @@ const app = createApp({
       contacts: [],
       currentContactId: 1,
       newMessage: "",
+      searchedContact: "",
     };
   },
   computed: {
     activeContact() {
       return this.contacts.find(
         (contact) => this.currentContactId === contact.id
+      );
+    },
+    filteredContacts() {
+      const term = this.searchedContact.toLowerCase();
+      return this.contacts.filter(({ name }) =>
+        name.toLowerCase().includes(term)
       );
     },
   },

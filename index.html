@@ -60,12 +60,12 @@
                         </div>
                         <!-- Search Contacts -->
                         <div id="search-contact">
-                            <input type="search" placeholder="Cerca o inizia una nuova chat">
+                            <input type="search" placeholder="Cerca o inizia una nuova chat" v-model="searchedContact">
                         </div>
                         <!-- Contacts List -->
                         <div id="contacts-list">
                             <ul class="list-unstyled m-0">
-                                <li v-for="contact in contacts" @click="setCurrentContactId(contact.id)">
+                                <li v-for="contact in filteredContacts" @click="setCurrentContactId(contact.id)">
                                     <div class="contact d-flex">
                                         <div class="avatar p-3">
                                             <img :src=`img/avatar${contact.avatar}.jpg` :alt=`${contact.name}`>
