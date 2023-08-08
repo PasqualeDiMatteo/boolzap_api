@@ -16,6 +16,7 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
+      isDark: false,
       contacts: [],
       currentContactId: 1,
       newMessage: "",

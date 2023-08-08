@@ -35,35 +35,37 @@
                     <!-- Section Contacts -->
                     <section id="contacts">
                         <!-- Header Contacts -->
-                        <header class="d-flex justify-content-between align-items-center">
+                        <header class="d-flex justify-content-between align-items-center" :class="{'bg-black':isDark}">
                             <div class="info-user">
                                 <div class="avatar">
                                     <img src="img/avatar_io.jpg" alt="avatar">
                                 </div>
-                                <h5 class="name-user">
+                                <h5 class="name-user" :class="{'text-white':isDark}">
                                     Pasquale
                                 </h5>
                             </div>
                             <div class="profile-buttons ">
-                                <i class="fa-solid fa-xl fa-circle-notch px-2"></i>
-                                <i class="fa-solid fa-xl fa-message px-2"></i>
-                                <i class="fa-solid fa-xl fa-ellipsis-vertical px-2"></i>
+                                <i class="fa-solid fa-xl fa-circle-notch px-2" :class="{'text-white':isDark}"
+                                    @click="isDark=!isDark"></i>
+                                <i class="fa-solid fa-xl fa-message px-2" :class="{'text-white':isDark}"></i>
+                                <i class="fa-solid fa-xl fa-ellipsis-vertical px-2" :class="{'text-white':isDark}"></i>
                             </div>
                         </header>
                         <!-- Notification -->
-                        <div id="notification">
-                            <i class="fa-solid fa-bell-slash fa-xl"></i>
+                        <div id="notification" :class="{'bg-dark':isDark}">
+                            <i class="fa-solid fa-bell-slash fa-xl" :class="{'text-black':isDark}"></i>
                             <div>
-                                <p>Ricevi notifiche di nuovi messaggi</p>
+                                <p :class="{'text-white':isDark}">Ricevi notifiche di nuovi messaggi</p>
                                 <p class="activate-notification-desktop">Attiva notifiche desktop</p>
                             </div>
                         </div>
                         <!-- Search Contacts -->
-                        <div id="search-contact">
-                            <input type="search" placeholder="Cerca o inizia una nuova chat" v-model="searchedContact">
+                        <div id="search-contact" :class="{'bg-dark':isDark}">
+                            <input type="search" placeholder="Cerca o inizia una nuova chat" v-model="searchedContact"
+                                :class="{'bg-dark':isDark}">
                         </div>
                         <!-- Contacts List -->
-                        <div id="contacts-list">
+                        <div id="contacts-list" :class="{'bg-dark':isDark}">
                             <ul class="list-unstyled m-0">
                                 <li v-for="contact in filteredContacts" @click="setCurrentContactId(contact.id)">
                                     <div class="contact d-flex">
@@ -71,7 +73,7 @@
                                             <img :src=`img/avatar${contact.avatar}.jpg` :alt=`${contact.name}`>
                                         </div>
                                         <div>
-                                            <h5 class="name py-2">
+                                            <h5 class="name py-2" :class="{'text-white':isDark}">
                                                 {{contact.name}}
                                             </h5>
                                             <p class="text-secondary">
@@ -89,15 +91,16 @@
                     <!-- Chat -->
                     <section id="chat">
                         <!-- Header Chat -->
-                        <header class="d-flex justify-content-between align-items-center p-3">
+                        <header class="d-flex justify-content-between align-items-center p-3"
+                            :class="{'bg-black':isDark}">
                             <!-- Contact -->
                             <div class="contact d-flex align-items-center" v-if="activeContact">
                                 <div class="avatar ">
                                     <img :src=`img/avatar${activeContact.avatar}.jpg` alt="avatar">
                                 </div>
                                 <div class="info-contact">
-                                    <h5 class="name p-0">{{activeContact.name}}</h5>
-                                    <div class="date">
+                                    <h5 class="name p-0" :class="{'text-white':isDark}">{{activeContact.name}}</h5>
+                                    <div class="date" :class="{'text-white':isDark}">
                                         Ultimo accesso {{activeContact.messages[activeContact.messages.length-1].date}}
                                     </div>
                                 </div>
@@ -117,7 +120,7 @@
                             </div>
                         </div>
                         <!-- Footer -->
-                        <footer>
+                        <footer :class="{'bg-black':isDark}">
                             <div class="row align-items-center h-100 text-center position">
                                 <div v-if="isEmojiMenu === true" class="emoji-menu bg-dark p-2 rounded">
                                     <span @click="newMessage += emote" v-for="emote in emotes"
@@ -128,7 +131,8 @@
                                 </div>
                                 <div class="col-10">
                                     <textarea class="form-control" rows="1" placeholder="Scrivi un messaggio"
-                                        v-model.trim="newMessage" @keyup.enter=" addNewMessage"></textarea>
+                                        v-model.trim="newMessage" @keyup.enter=" addNewMessage"
+                                        :class="{'bg-dark':isDark}"></textarea>
                                 </div>
                                 <div class="col-1 text-center">
                                     <i class="fa-solid fa-microphone fa-2xl" @click="startListening"></i>
