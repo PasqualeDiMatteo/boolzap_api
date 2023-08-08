@@ -65,7 +65,7 @@
                         <!-- Contacts List -->
                         <div id="contacts-list">
                             <ul class="list-unstyled m-0">
-                                <li v-for="contact in contacts">
+                                <li v-for="contact in contacts" @click="setCurrentContactId(contact.id)">
                                     <div class="contact d-flex">
                                         <div class="avatar p-3">
                                             <img :src=`img/avatar${contact.avatar}.jpg` :alt=`${contact.name}`>

@@ -1,4 +1,4 @@
-const url_api = "http://localhost/boolzap_api/api/index.php";
+const url_api = "http://localhost/boolzap_api_db/api/index.php";
 
 // Controllo JS
 console.log("JSOK");
@@ -17,10 +17,16 @@ const app = createApp({
   data() {
     return {
       contacts: [],
+      currentContactId: 1,
     };
   },
-  created() {
-    axios.get(url_api).then(function (res) {
+  methods: {
+    setCurrentContactId(id) {
+      this.currentContactId = id;
+    },
+  },
+  mounted() {
+    axios.get(url_api).then((res) => {
       this.contacts = res.data;
     });
   },

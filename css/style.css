@@ -137,7 +137,7 @@ main section {
     margin: 1rem 1rem;
 }
 
-.message.send{
+.sent{
     align-self: flex-end;
     background-color: #d5f9ba;
     border-radius: 15px 15px 0 15px;
