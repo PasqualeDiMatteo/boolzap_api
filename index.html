@@ -83,7 +83,7 @@
                         <!-- Header Chat -->
                         <header class="d-flex justify-content-between align-items-center p-3">
                             <!-- Contact -->
-                            <div class="contact d-flex align-items-center">
+                            <div class="contact d-flex align-items-center" v-if="activeContact">
                                 <div class="avatar ">
                                     <img :src=`img/avatar${activeContact.avatar}.jpg` alt="avatar">
                                 </div>
@@ -102,7 +102,7 @@
                             </div>
                         </header>
                         <!-- Main Chat -->
-                        <div class="chat">
+                        <div class="chat" v-if="activeContact">
                             <div class="message" :class="message.status" v-for="message in activeContact.messages">
                                 <p class="message-text m-0">{{message.message}}</p>
                                 <p class="date m-0">{{message.date}}</p>
@@ -115,8 +115,8 @@
                                     <i class="fa-regular fa-face-smile fa-2xl"></i>
                                 </div>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows="2"
-                                        placeholder="Scrivi un messaggio"></textarea>
+                                    <textarea class="form-control" rows="1" placeholder="Scrivi un messaggio"
+                                        v-model.trim="newMessage" @keyup.enter=" addNewMessage"></textarea>
                                 </div>
                                 <div class="col-1 text-center">
                                     <i class="fa-solid fa-microphone fa-2xl"></i>

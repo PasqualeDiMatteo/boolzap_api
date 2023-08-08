@@ -18,6 +18,7 @@ const app = createApp({
     return {
       contacts: [],
       currentContactId: 1,
+      newMessage: "",
     };
   },
   computed: {
@@ -30,6 +31,22 @@ const app = createApp({
   methods: {
     setCurrentContactId(id) {
       this.currentContactId = id;
+    },
+    addNewMessage() {
+      const data = { message: this.newMessage, id: this.currentContactId };
+      const config = { headers: { "Content-Type": "multipart/form-data" } };
+      axios.post(url_api, data, config).then((res) => {
+        this.activeContact.messages.push(res.data);
+        this.newMessage = "";
+      });
+      setTimeout(() => {
+        this.activeContact.messages.push({
+          id: new Date().getTime(),
+          date: new Date().toLocaleString(),
+          message: "Ok",
+          status: "received",
+        });
+      }, 2000);
     },
   },
   created() {
