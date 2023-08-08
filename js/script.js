@@ -20,6 +20,13 @@ const app = createApp({
       currentContactId: 1,
     };
   },
+  computed: {
+    activeContact() {
+      return this.contacts.find(
+        (contact) => contact.id == this.currentContactId
+      );
+    },
+  },
   methods: {
     setCurrentContactId(id) {
       this.currentContactId = id;
