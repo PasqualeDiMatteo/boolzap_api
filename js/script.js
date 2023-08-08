@@ -1,3 +1,5 @@
+const url_api = "http://localhost/boolzap_api/api/index.php";
+
 // Controllo JS
 console.log("JSOK");
 
@@ -13,7 +15,14 @@ const { createApp } = Vue;
 
 const app = createApp({
   data() {
-    return {};
+    return {
+      contacts: [],
+    };
+  },
+  created() {
+    axios.get(url_api).then(function (res) {
+      this.contacts = res.data;
+    });
   },
 });
 
