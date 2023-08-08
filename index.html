@@ -70,9 +70,17 @@
                                         <div class="avatar p-3">
                                             <img :src=`img/avatar${contact.avatar}.jpg` :alt=`${contact.name}`>
                                         </div>
-                                        <h5 class="name py-3">
-                                            {{contact.name}}
-                                        </h5>
+                                        <div>
+                                            <h5 class="name py-2">
+                                                {{contact.name}}
+                                            </h5>
+                                            <p class="text-secondary">
+                                                {{contact.messages[contact.messages.length-1].message}}
+                                            </p>
+                                            <p class="my-1 text-black-50">
+                                                {{contact.messages[contact.messages.length-1].date}}
+                                            </p>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -90,7 +98,7 @@
                                 <div class="info-contact">
                                     <h5 class="name p-0">{{activeContact.name}}</h5>
                                     <div class="date">
-                                        Ultimo accesso oggi alle
+                                        Ultimo accesso {{activeContact.messages[activeContact.messages.length-1].date}}
                                     </div>
                                 </div>
                             </div>
