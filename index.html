@@ -85,10 +85,10 @@
                             <!-- Contact -->
                             <div class="contact d-flex align-items-center">
                                 <div class="avatar ">
-                                    <img src="img/avatar_1.jpg" alt="avatar">
+                                    <img :src=`img/avatar${activeContact.avatar}.jpg` alt="avatar">
                                 </div>
                                 <div class="info-contact">
-                                    <h5 class="name p-0">Michele</h5>
+                                    <h5 class="name p-0">{{activeContact.name}}</h5>
                                     <div class="date">
                                         Ultimo accesso oggi alle
                                     </div>
@@ -103,14 +103,9 @@
                         </header>
                         <!-- Main Chat -->
                         <div class="chat">
-                            <div class="message sent">
-                                <p class="message-text m-0">Hai portato a spasso il cane?</p>
-                                <p class="date m-0">10/01/2020 15:30:55</p>
-                            </div>
-                            <div class="message received">
-                                <p class="message-text m-0">
-                                    Tutto fatto!</p>
-                                <p class="date m-0">10/01/2020 16:15:22</p>
+                            <div class="message" :class="message.status" v-for="message in activeContact.messages">
+                                <p class="message-text m-0">{{message.message}}</p>
+                                <p class="date m-0">{{message.date}}</p>
                             </div>
                         </div>
                         <!-- Footer -->

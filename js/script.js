@@ -23,7 +23,7 @@ const app = createApp({
   computed: {
     activeContact() {
       return this.contacts.find(
-        (contact) => contact.id == this.currentContactId
+        (contact) => this.currentContactId === contact.id
       );
     },
   },
@@ -32,7 +32,7 @@ const app = createApp({
       this.currentContactId = id;
     },
   },
-  mounted() {
+  created() {
     axios.get(url_api).then((res) => {
       this.contacts = res.data;
     });
