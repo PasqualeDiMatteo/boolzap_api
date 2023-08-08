@@ -153,6 +153,18 @@ main section {
     color: lightgrey;
  }
 
+ .position{
+    position: relative;
+ }
+
+ .emoji-menu{
+    position: absolute;
+    top: -100px;
+    left: 50px;
+    cursor: pointer;
+    width: 800px;
+ }
+
 /* Chat Footer */
 footer textarea{
     resize: none;

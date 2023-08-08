@@ -110,9 +110,13 @@
                         </div>
                         <!-- Footer -->
                         <footer>
-                            <div class="row align-items-center h-100 text-center">
+                            <div class="row align-items-center h-100 text-center position">
+                                <div v-if="isEmojiMenu === true" class="emoji-menu bg-dark p-2 rounded">
+                                    <span @click="newMessage += emote" v-for="emote in emotes"
+                                        class="fs-5">{{emote}}</span>
+                                </div>
                                 <div class="col-1">
-                                    <i class="fa-regular fa-face-smile fa-2xl"></i>
+                                    <i class="fa-regular fa-face-smile fa-2xl" @click="isEmojiMenu = !isEmojiMenu"></i>
                                 </div>
                                 <div class="col-10">
                                     <textarea class="form-control" rows="1" placeholder="Scrivi un messaggio"
