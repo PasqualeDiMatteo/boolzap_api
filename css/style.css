@@ -1,0 +1,159 @@
+/* UTILITIES */
+.background{
+    background-image: linear-gradient(180deg, rgba(0,150,136,1) 10%, rgba(217,219,213,1) 10%);
+    height:100vh;
+}
+.background>.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+/* Header */
+header {
+    height: 100px;
+    background-color: #eaeaea;
+    flex-shrink: 0;
+}
+/* Footer */
+footer {
+    height: 100px;
+    background-color: #f3eeea;
+}
+/* Main */
+main{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+main section {
+    height: 100%;
+}
+/* Contacts */
+#contacts {
+    flex-basis: calc(100% / 3 );
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid lightgray;
+}
+/* Contacts Header*/
+.info-user {
+    display: flex;
+    padding: .5rem;
+    align-items: center;
+}
+.avatar img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: .5rem;
+}
+.profile-buttons{
+    color:#b1b1b1;
+}
+.profile-buttons i{
+    cursor: pointer;
+}
+/* Notification */
+#contacts #notification {
+    background-color:#8edafc;
+    height: 110px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+#notification .fa-bell-slash{
+    width: 70px;
+    height: 70px;
+    color: #8edafc;
+    background-color: white;
+    margin-right: .5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#notification p{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+#notification .activate-notification-desktop{
+    text-decoration: underline;
+    color: #777;
+    cursor: pointer;
+    font-size: 13px;
+}
+/* Search Contact */
+#search-contact{
+    padding: 5px;
+    background-color: #fafafa;
+    position: relative;
+}
+#search-contact input{
+    width: 100%;
+    padding: 0 45px ;
+}
+#search-contact::before{
+    content: '\f002';
+    color: #777;
+    font: var(--fa-font-solid);
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+/* Contact List */
+#contacts-list{
+    overflow: auto;
+    background-color: white;
+    flex-grow: 1;
+}
+#contacts-list li{
+    border-bottom: 1px solid lightgray;
+}
+.contact .name {
+    padding: 10px 0;
+}
+/* Chat */
+#chat {
+    flex-basis: calc(100% / 3 * 2);
+    background-image:url(../img/mine.jpg);
+}
+#chat .chat {
+    background-image: url('../img/mine.jpg');
+    height: calc(100% - 200px);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat .message{
+    width: 40%;
+    padding: 15px 10px 10px;
+    margin: 1rem 1rem;
+}
+
+.message.send{
+    align-self: flex-end;
+    background-color: #d5f9ba;
+    border-radius: 15px 15px 0 15px;
+}
+
+.message.received{
+   background-color: white;
+   border-radius: 0 15px 15px 15px;
+}
+
+.message .date{
+    text-align: right;
+    color: lightgrey;
+ }
+
+/* Chat Footer */
+footer textarea{
+    resize: none;
+}
