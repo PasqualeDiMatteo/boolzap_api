@@ -27,9 +27,9 @@
     <!-- Root -->
     <div id="root">
         <!-- Background -->
-        <div class="background">
+        <div class="background" :class="{'background-dark':isDark}">
             <!-- Container -->
-            <div class="container">
+            <div class=" container">
                 <!-- Mani -->
                 <main>
                     <!-- Section Contacts -->
@@ -120,22 +120,24 @@
                             </div>
                         </div>
                         <!-- Footer -->
-                        <footer :class="{'bg-black':isDark}">
+                        <footer :class="{'bg-dark':isDark}">
                             <div class="row align-items-center h-100 text-center position">
                                 <div v-if="isEmojiMenu === true" class="emoji-menu bg-dark p-2 rounded">
                                     <span @click="newMessage += emote" v-for="emote in emotes"
                                         class="fs-5">{{emote}}</span>
                                 </div>
                                 <div class="col-1">
-                                    <i class="fa-regular fa-face-smile fa-2xl" @click="isEmojiMenu = !isEmojiMenu"></i>
+                                    <i class="fa-regular fa-face-smile fa-2xl" @click="isEmojiMenu = !isEmojiMenu"
+                                        :class="{'text-white':isDark}"></i>
                                 </div>
                                 <div class="col-10">
                                     <textarea class="form-control" rows="1" placeholder="Scrivi un messaggio"
                                         v-model.trim="newMessage" @keyup.enter=" addNewMessage"
-                                        :class="{'bg-dark':isDark}"></textarea>
+                                        :class="{'bg-dark-subtle':isDark}"></textarea>
                                 </div>
                                 <div class="col-1 text-center">
-                                    <i class="fa-solid fa-microphone fa-2xl" @click="startListening"></i>
+                                    <i class="fa-solid fa-microphone fa-2xl" @click="startListening"
+                                        :class="{'text-white':isDark}"></i>
                                 </div>
                             </div>
                         </footer>

@@ -1,6 +1,12 @@
+
 /* UTILITIES */
 .background{
     background-image: linear-gradient(180deg, rgba(0,150,136,1) 10%, rgba(217,219,213,1) 10%);
+    height:100vh;
+}
+
+.background-dark{
+    background-image: linear-gradient(180deg, rgba(0,150,136,1) 10%, rgb(68, 68, 68) 10%);
     height:100vh;
 }
 .background>.container{
